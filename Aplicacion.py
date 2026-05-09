@@ -21,6 +21,7 @@ from rag.rag_agent import preguntar_rag
 
 from agents.anomaly_agent import explicar_anomalias
 from agents.agente_ia import generar_reporte, generar_chat
+from evaluacion.opik_logger import guardar_log
 
 
 # =========================================================
@@ -432,6 +433,10 @@ RESPUESTA:
             st.subheader("🤖 Respuesta IA")
 
             st.write(respuesta_chat)
+            guardar_log(
+                pregunta,
+                respuesta_chat
+            )
 
     except Exception as e:
 
